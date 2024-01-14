@@ -29,7 +29,7 @@ public class TypeSalleController {
 
   @GetMapping
   public ResponseEntity<?> getAllTypeSalle(@RequestParam String userId) {
-    if (!utilisateurService.checkRole(userId, Role.A))
+    if (!utilisateurService.checkRole(userId, Role.RG))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
     return ResponseEntity.ok(typeSalleService.getAllTypeSalle());
@@ -37,7 +37,7 @@ public class TypeSalleController {
 
   @GetMapping("/{entityId}")
   public ResponseEntity<?> getTypeSalle(@PathVariable String entityId, @RequestParam String userId) {
-    if (!utilisateurService.checkRole(userId, Role.A))
+    if (!utilisateurService.checkRole(userId, Role.RG))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
     return ResponseEntity.ok(typeSalleService.getTypeSalle(entityId));
@@ -45,7 +45,7 @@ public class TypeSalleController {
 
   @PostMapping
   public ResponseEntity<?> addTypeSalle(@RequestBody TypeSalle typeSalle, @RequestParam String userId) {
-    if (!utilisateurService.checkRole(userId, Role.A))
+    if (!utilisateurService.checkRole(userId, Role.RG))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
     return ResponseEntity.ok(typeSalleService.addTypeSalle(typeSalle));
@@ -53,7 +53,7 @@ public class TypeSalleController {
 
   @PutMapping
   public ResponseEntity<?> editTypeSalle(@RequestBody TypeSalle ts, @RequestParam String userId) {
-    if (!utilisateurService.checkRole(userId, Role.A))
+    if (!utilisateurService.checkRole(userId, Role.RG))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
     return ResponseEntity.ok(typeSalleService.updateTypeSalle(ts));
@@ -61,7 +61,7 @@ public class TypeSalleController {
 
   @DeleteMapping("/{entityId}")
   public ResponseEntity<String> deleteTypeSalle(@PathVariable String entityId, @RequestParam String userId) {
-    if (!utilisateurService.checkRole(userId, Role.A))
+    if (!utilisateurService.checkRole(userId, Role.RG))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
     typeSalleService.deleteTypeSalle(entityId);
