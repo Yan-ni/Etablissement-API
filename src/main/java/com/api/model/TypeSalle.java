@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class TypeSalle {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int type_salle_id;
+  private int id;
   @Column(nullable = false, length = 30)
-  private String type_salle_nom;
+  private String nom;
 }

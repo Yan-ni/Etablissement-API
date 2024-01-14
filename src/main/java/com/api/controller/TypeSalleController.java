@@ -52,7 +52,7 @@ public class TypeSalleController {
   }
 
   @PutMapping
-  public ResponseEntity<?> putMethodName(@RequestBody TypeSalle ts, @RequestParam String userId) {
+  public ResponseEntity<?> editTypeSalle(@RequestBody TypeSalle ts, @RequestParam String userId) {
     if (!utilisateurService.checkRole(userId, Role.A))
       return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
 
